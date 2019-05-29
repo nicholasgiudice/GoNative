@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 const style = StyleSheet.create({
   container: {
@@ -36,13 +37,21 @@ const style = StyleSheet.create({
   },
 });
 
-const Post = props => (
+const Post = ({ data }) => (
   <View style={style.container}>
-    <Text style={style.title}>{props.title}</Text>
-    <Text style={style.author}>{props.author}</Text>
+    <Text style={style.title}>{data.title}</Text>
+    <Text style={style.author}>{data.author}</Text>
     <View style={style.hr} />
-    <Text style={style.text}>{props.text}</Text>
+    <Text style={style.text}>{data.text}</Text>
   </View>
 );
+
+Post.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Post;

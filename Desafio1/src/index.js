@@ -64,7 +64,7 @@ export default class App extends Component {
       <ScrollView style={styles.scroll}>
         <View style={styles.container}>
           {posts.map(post => (
-            <Post key={post.id} title={post.title} author={post.author} text={post.text} />
+            <Post key={post.id} data={post} />
           ))}
         </View>
       </ScrollView>
